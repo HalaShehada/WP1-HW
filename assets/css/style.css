@@ -1,0 +1,117 @@
+/* 1. الإعدادات العامة والخطوط */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 2. الهيدر والفوتر (Navbar & Footer) */
+.navbar-brand { font-weight: 700; font-size: 1.5rem; }
+.brand-text { color: #0d6efd; margin-right: 10px; }
+
+footer { background-color: #f8f9fa; }
+footer a { text-decoration: none; transition: color 0.3s; }
+footer a:hover { color: #0d6efd !important; }
+
+/* 3. بطاقات الفعاليات (Event Cards) - توحيد التصميم */
+.event-card, .featured-card {
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+}
+
+.event-card:hover, .featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.event-card img, .featured-card img {
+    height: 200px !important;
+    object-fit: cover !important;
+    width: 100%;
+}
+
+/* 4. قسم فريق المشروع (Participants) */
+#participants-info {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+}
+
+.participant-box { /* كلاس جديد اقترح استخدامه بدلاً من border rounded العادي */
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* 5. الأزرار والتفاعلات */
+.category-btn { transition: all 0.3s ease; border-radius: 10px; border-width: 2px; }
+.category-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+#scrollToTop {
+    position: fixed; bottom: 20px; left: 20px;
+    width: 50px; height: 50px;
+    z-index: 1000; transition: all 0.3s ease;
+}
+
+/* 6. الوضع الداكن (Dark Mode) - مجمع ومنظم */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+/* الأسطح والبطاقات */
+body.dark-mode .card, 
+body.dark-mode .bg-white, 
+body.dark-mode section,
+body.dark-mode #participants-info,
+body.dark-mode .participant-box {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #333 !important;
+    background-image: none !important; /* لإلغاء الجرادينت في قسم الفريق */
+}
+
+/* الهيدر والفوتر في الوضع الداكن */
+body.dark-mode .navbar, 
+body.dark-mode footer,
+body.dark-mode .bg-light {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+}
+
+/* النصوص والعناوين */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h5, body.dark-mode h6,
+body.dark-mode .nav-link, body.dark-mode .navbar-brand {
+    color: #ffffff !important;
+}
+
+body.dark-mode .text-muted { color: #aaa !important; }
+
+/* 7. التجاوبية (Responsive) */
+@media (max-width: 768px) {
+    .carousel-item img { height: 250px; }
+    .event-card { margin-bottom: 15px; }
+    #participants-info { padding: 20px !important; }
+}
+
+/* ألوان التصنيفات الموحدة */
+.badge-sports { background-color: #28a745 !important; color: white; }
+.badge-culture { background-color: #007bff !important; color: white; }
+.badge-music { background-color: #fd7e14 !important; color: white; }
+.badge-family { background-color: #17a2b8 !important; color: white; }
+.badge-art { background-color: #6f42c1 !important; color: white; }
