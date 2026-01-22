@@ -1,7 +1,11 @@
 ## معلومات أكاديمية 🎓
 هذا المشروع هو جزء من متطلبات مقرر **برمجة الويب (Web Programming)** ضمن برنامج **ماجستير علوم الحاسوب (MSc in Computer Science)**.
 
-* **إعداد الطالبة:** حلا شحادة
+* **إعداد الطلاب :** حلا شحادة(Hala_381636)
+لبنة عموري (Lubna_390844)
+سهى مصطفى (Soha_380624)
+أنس كحلوس (Anas_395742)
+
 * **بإشراف:** الدكتور باسل الخطيب
 * **العام الدراسي:** 2025 - 2026
 
@@ -61,7 +65,10 @@
 This project was developed as a requirement for the **Web Programming** course 
 in the **Master of Science in Computer Science (MSc CS)** program.
 
-* **Developed by:** Hala Shehada
+* **Developed by:** Hala Shehada (Hala_381636)
+Lubna Ammouri (Lubna_390844)
+Soha Mustafa (Soha_380624)
+Anas Kahlous (Anas_395742)
 * **Supervised by:** Professor Dr.Bassel AlKhatib
 * **Academic Year:** 2025 - 2026
 
