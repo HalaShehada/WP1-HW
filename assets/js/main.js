@@ -133,14 +133,14 @@ function renderFeatured() {
 }
 
 // 4. نظام التنبيهات والوضع الداكن
-function showAlert(msg, type = 'info') {
+/*function showAlert(msg, type = 'info') {
     const alertBox = document.createElement('div');
     alertBox.className = `alert alert-${type} alert-dismissible fade show fixed-top m-3 ms-auto`;
     alertBox.style.maxWidth = '300px';
     alertBox.innerHTML = `${msg}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
     document.body.appendChild(alertBox);
     setTimeout(() => alertBox.remove(), 3000);
-}
+}*/
 
 // 5. تهيئة الصفحة (Initialization)
 document.addEventListener('DOMContentLoaded', () => {
@@ -160,12 +160,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // تبديل الوضع الداكن
-    const toggle = document.getElementById('darkModeToggle');
-    if (toggle) {
-        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  // 1. منطق الوضع الداكن المطور
+    const darkToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // التحقق من التفضيل المحفوظ سابقاً
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        if(darkToggle) darkToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    if (darkToggle) {
+        darkToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // تغيير الأيقونة بين شمس وقمر
+            darkToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
         });
     }
     
@@ -535,34 +547,6 @@ function getCategoryColorClass(category) {
             // إغلاق الـ Modal
             const shareModal = bootstrap.Modal.getInstance(document.getElementById('shareModal'));
             shareModal.hide();
-        }
-        
-        // دالة فتح صورة في modal (اختياري)
-        function openImageModal(imageSrc) {
-            const modalHtml = `
-                <div class="modal fade" id="imageModal" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-body p-0">
-                                <img src="${imageSrc}" class="img-fluid w-100" alt="صورة الفعالية">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // إضافة الـ Modal إلى الصفحة وفتحه
-            document.body.insertAdjacentHTML('beforeend', modalHtml);
-            const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-            imageModal.show();
-            
-            // إزالة الـ Modal عند الإغلاق
-            document.getElementById('imageModal').addEventListener('hidden.bs.modal', function() {
-                this.remove();
-            });
         }
 
         // دالة عرض أحدث الفعاليات في الصفحة الرئيسية
