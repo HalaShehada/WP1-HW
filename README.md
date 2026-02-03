@@ -61,10 +61,7 @@
 This project was developed as a requirement for the **Web Programming** course 
 in the **Master of Science in Computer Science (MSc CS)** program.
 
-* **Developed by:** 
-Hala Shehada 
-
-
+* **Developed by:** Hala Shehada 
 * **Supervised by:** Professor Dr.Bassel AlKhatib
 * **Academic Year:** 2025 - 2026
 
